@@ -1,6 +1,33 @@
+/* Font styles */
+
+@font-face {
+	font-family: 'New-Normal';
+	src: url('/assets/fonts/New-Normal-Regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+  }
+
+  @font-face {
+	font-family: 'Rinjani';
+	src: url('/fonts/Rinjani.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+  }
+
+ .font-new-normal {
+	font-family: "New Normal", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+
+ .font-rinjani {
+	font-family: "Rinjani", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+
 /* Global variables */
 :root {
 	/* Colors */
+	--halation-1: #1f1c1b;
 	--gray-0: #090b11;
 	--gray-50: #141925;
 	--gray-100: #283044;
@@ -51,12 +78,12 @@
 		0px 7px 7px rgba(9, 11, 17, 0.05), 0px 2px 4px rgba(9, 11, 17, 0.06);
 	--shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
 		0px 16px 16px rgba(9, 11, 17, 0.1), 0px 4px 9px rgba(9, 11, 17, 0.12); */
-		--shadow-sm: 0px 6px 15px rgba(255, 0, 0, 0.1), 0px 4px 10px rgba(255, 0, 0, 0.1),
-				0px 2px 8px rgba(255, 0, 0, 0.1), 0px 0px 5px rgba(255, 0, 0, 0.1);
-	--shadow-md: 0px 28px 40px rgba(255, 0, 0, 0.1), 0px 16px 30px rgba(255, 0, 0, 0.1),
-				0px 7px 20px rgba(255, 0, 0, 0.1), 0px 2px 15px rgba(255, 0, 0, 0.1);
-	--shadow-lg: 0px 62px 80px rgba(255, 0, 0, 0.1), 0px 35px 60px rgba(255, 0, 0, 0.1),
-				0px 16px 40px rgba(255, 0, 0, 0.1), 0px 4px 30px rgba(255, 0, 0, 0.1);
+		--shadow-sm: 0px 0px 15px rgba(255, 100, 0, 0.1), 0px 0px 10px rgba(255, 100, 0, 0.1),
+		0px 0px 8px rgba(255, 100, 0, 0.1), 0px 0px 5px rgba(255, 100, 0, 0.1);
+		--shadow-md: 0px 0px 40px rgba(255, 100, 0, 0.1), 0px 0px 30px rgba(255, 100, 0, 0.1),
+				0px 0px 20px rgba(255, 100, 0, 0.1), 0px 0px 15px rgba(255, 100, 0, 0.1);
+		--shadow-lg: 0px 0px 80px rgba(255, 100, 0, 0.1), 0px 0px 60px rgba(255, 100, 0, 0.1),
+				0px 0px 40px rgba(255, 100, 0, 0.1), 0px 0px 30px rgba(255, 100, 0, 0.1);
 
 	/* Text Sizes */
 	--text-sm: 0.875rem;
@@ -80,6 +107,7 @@
 }
 
 :root.theme-dark {
+	--halation-1: #c8d9bf;
 	--gray-0: #ffffff;
 	--gray-50: #f3f4f7;
 	--gray-100: #e3e6ee;
@@ -94,11 +122,17 @@
 	--gray-999-basis: 225, 31%, 5%;
 	--gray-999: #090b11;
 
-	--accent-light: #1c0056;
+	--accent-light: #382044;
+	--accent-regular: #d61e67;
+	--accent-dark: #ff237a;
+	--accent-overlay: hsla(336, 75%, 48%, 0.33);
+	--accent-subtle-overlay: hsla(336, 97%, 45%, 0.33);
+
+	/* --accent-light: #1c0056;
 	--accent-regular: #7611a6;
 	--accent-dark: #c561f6;
 	--accent-overlay: hsla(280, 89%, 67%, 0.33);
-	--accent-subtle-overlay: hsla(281, 81%, 36%, 0.33);
+	--accent-subtle-overlay: hsla(281, 81%, 36%, 0.33); */
 	--accent-text-over: var(--gray-0);
 
 	--link-color: var(--accent-dark);
@@ -113,12 +147,18 @@
 	);
 	--gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
 
-	--shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01), 0px 4px 2px rgba(255, 255, 255, 0.01),
+	/* --shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01), 0px 4px 2px rgba(255, 255, 255, 0.01),
 		0px 2px 2px rgba(255, 255, 255, 0.02), 0px 0px 1px rgba(255, 255, 255, 0.03);
 	--shadow-md: 0px 28px 11px rgba(255, 255, 255, 0.01), 0px 16px 10px rgba(255, 255, 255, 0.03),
 		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
 	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
-		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
+		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12); */
+		--shadow-sm: 0px 0px 15px rgba(255, 100, 0, 0.1), 0px 0px 10px rgba(255, 100, 0, 0.1),
+		0px 0px 8px rgba(255, 100, 0, 0.1), 0px 0px 5px rgba(255, 100, 0, 0.1);
+		--shadow-md: 0px 0px 40px rgba(255, 100, 0, 0.1), 0px 0px 30px rgba(255, 100, 0, 0.1),
+				0px 0px 20px rgba(255, 100, 0, 0.1), 0px 0px 15px rgba(255, 100, 0, 0.1);
+		--shadow-lg: 0px 0px 80px rgba(255, 100, 0, 0.1), 0px 0px 60px rgba(255, 100, 0, 0.1),
+				0px 0px 40px rgba(255, 100, 0, 0.1), 0px 0px 30px rgba(255, 100, 0, 0.1);
 }
 
 html,
@@ -157,7 +197,6 @@ a {
 	color: var(--link-color);
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -165,11 +204,16 @@ h5 {
 	line-height: 1.1;
 	font-family: var(--font-brand);
 	font-weight: 600;
-	color: var(--gray-100);
+	color: var(--halation-1);
+	/* color: var(--gray-100); */
 }
 
 h1 {
+	line-height: 1.1;
+	font-family: var(--font-brand);
+	font-weight: 600;
 	font-size: var(--text-5xl);
+	color: var(--halation-1);
 }
 
 h2 {
@@ -291,4 +335,16 @@ h5 {
     z-index: -1;
     transform: translate(-50%, -50%);
 	mix-blend-mode: overlay;
+}
+
+.font-halation {
+	text-shadow: 
+		0px 0px 5px rgba(255, 102, 0, 0.3),
+		0px 0px 10px rgba(255, 100, 0, 0.3),
+		0px 0px 15px rgba(255, 100, 0, 0.3),
+		0px 0px 20px rgba(255, 100, 0, 0.3);
+}
+
+.tracking-wider{
+	letter-spacing: 0.05em;
 }

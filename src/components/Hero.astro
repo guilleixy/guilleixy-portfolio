@@ -1,16 +1,25 @@
 ---
 interface Props {
-	title: string;
+	pretitle?: string;
+	titlenormal?: string;
+	titleaccent?: string;
 	tagline?: string;
+	title?: string;
 	align?: 'start' | 'center';
 }
 
-const { align = 'center', tagline, title } = Astro.props;
+const { align = 'center', tagline, pretitle, titlenormal, titleaccent, title } = Astro.props;
 ---
 
 <div class:list={['hero stack gap-4', align]}>
 	<div class="stack gap-2">
-		<h1 class="title">{title}</h1>
+		<h1 class="title font-halation">
+			{pretitle ? (
+				<h1 class="title font-halation">{pretitle}<span class="font-rinjani">{titlenormal}</span><span class="font-new-normal tracking-wider">{titleaccent}</span></h1>
+			  ) : (
+				<h1 class="title font-halation">{title}</h1>
+			  )}
+		</h1>
 		{tagline && <p class="tagline">{tagline}</p>}
 	</div>
 	<slot />
@@ -30,7 +39,7 @@ const { align = 'center', tagline, title } = Astro.props;
 
 	.title {
 		font-size: var(--text-3xl);
-		color: var(--gray-0);
+		/* color: var(--gray-0); */
 	}
 
 	@media (min-width: 50em) {

@@ -232,6 +232,14 @@ h5 {
 	font-size: var(--text-xl);
 }
 
+ul{
+	list-style-type: none;
+}
+
+li{
+
+}
+
 /* Utilities */
 
 .sr-only {
@@ -335,6 +343,8 @@ h5 {
     z-index: -1;
     transform: translate(-50%, -50%);
 	mix-blend-mode: overlay;
+	object-fit: cover;
+    pointer-events: none;
 }
 
 .font-halation {
@@ -347,4 +357,8 @@ h5 {
 
 .tracking-wider{
 	letter-spacing: 0.05em;
+}
+
+.text-center{
+	text-align: center;
 }
